@@ -3,6 +3,7 @@ import wretch from "wretch";
 import { ref } from "vue";
 import InfoCard from "./components/InfoCard.vue";
 import LogList from "./components/LogList.vue";
+import WeatherCast from "./components/WeatherCast.vue";
 
 const panel = ref({});
 const orderedLogs = ref([{}])
@@ -25,6 +26,10 @@ wretch()
 <template>
 	<header>
 	</header>
+	<div class="weathercast-container">
+		<WeatherCast />
+		<!-- kWh daility -->
+	</div>
 	<div class="info-container">
 		<InfoCard infoTitle="Power Production" :infoValue="panel['power-production'] + ' kW'" />
 		<InfoCard infoTitle="This Month's Energy" :infoValue="panel['month-energy'] + ' kWh'" />
@@ -57,6 +62,10 @@ body {
 
 ul {
 	padding: 0 3em;
+}
+
+.weathercast-container {
+	font-size: 2rem;
 }
 
 .info-container {
