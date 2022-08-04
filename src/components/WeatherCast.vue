@@ -1,7 +1,7 @@
 <template>
 	<div class="temp-container">
-		<fa-icon icon="fa-solid fa-temperature-high" />
-		<div class="temperature"> {{ weather.temp }}</div>
+		<fa-icon class="icon" icon="fa-solid fa-temperature-high" />
+		<div class="temperature"> {{ weather.temp }}°C</div>
 	</div>
 </template>
 
@@ -16,7 +16,15 @@ wretch("https://api.openweathermap.org/data/2.5/onecall?lat=41.902782&lon=12.496
 </script>
 
 <style scoped>
+.icon {
+	margin: 0.25em 0;
+}
+
 .temp-container {
 	display: flex;
+}
+
+.temperature {
+	margin-left: 1em;
 }
 </style>

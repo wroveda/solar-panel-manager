@@ -18,7 +18,7 @@ const props = defineProps({
 	padding: 2em;
 	margin: 0.5em;
 	border-radius: 1em;
-	width: 100%;
+	width: 22em;
 }
 
 .info__title {
@@ -29,5 +29,12 @@ const props = defineProps({
 .info__value {
 	font-size: 1.5rem;
 	margin-left: 0.2em;
+}
+
+@media (max-width: 800px) {
+	.info {
+		padding: 0.2em 0.5em;
+		margin: 0.2em;
+	}
 }
 </style>

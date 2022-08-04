@@ -6,7 +6,7 @@ const props = defineProps({
 
 <template>
 	<div class="container">
-		<section :class="Log.type">{{ Log.date }}</section>
+		<section :class="Log.type" class="date">{{ Log.date }}</section>
 		<section class="text">{{ Log.text }}</section>
 	</div>
 </template>
@@ -26,27 +26,36 @@ section {
 }
 
 .text {
-	flex: 1 1 1;
-	width: auto;
-	overflow: scroll;
+	width: fit-content;
 	background: var(--clr-faded);
 	border-radius: 0.5em;
 	margin-left: 0.5em;
 }
 
+.date {
+	border-radius: 0.5em;
+	white-space: nowrap;
+}
+
 /* Class names MUST correspond to a 'log.type' from the API */
 .info {
 	background-color: var(--clr-info);
-	border-radius: 0.5em;
 }
 
 .warning {
 	background-color: var(--clr-warn);
-	border-radius: 0.5em;
 }
 
 .error {
 	background-color: var(--clr-err);
-	border-radius: 0.5em;
+}
+
+@media (max-width: 800px) {
+	.date {
+		min-width: 35%;
+		max-width: 35%;
+		white-space: normal;
+		word-break: keep-all;
+	}
 }
 </style>
