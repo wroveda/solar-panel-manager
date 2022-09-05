@@ -5,15 +5,23 @@
 	</div>
 </template>
 
+
 <script setup>
-import wretch from "wretch";
-import { ref } from "vue";
+import wretch from "wretch"
+import { ref } from "vue"
 let weather = ref({})
 
-wretch("https://api.openweathermap.org/data/2.5/onecall?lat=41.902782&lon=12.496366&units=metric&exclude=minutely,hourly,daily,alerts&appid=006e2bf402d1adf07010f5bbffdb1036")
-	.get()
-	.json(json => { weather.value = json.current })
+// Fetch weather forecast from Openweather
+function updateWeather() {
+	wretch("https://api.openweathermap.org/data/2.5/onecall?lat=41.902782&lon=12.496366&units=metric&exclude=minutely,hourly,daily,alerts&appid=006e2bf402d1adf07010f5bbffdb1036")
+		.get()
+		.json(json => { weather.value = json.current })
+}
+
+updateWeather()
+setInterval(updateWeather, 600000)
 </script>
+
 
 <style scoped>
 .icon {

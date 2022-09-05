@@ -1,3 +1,11 @@
+<template>
+	<div class="info">
+		<h3 class="info__title">{{ props.infoTitle }}</h3>
+		<p class="info__value">{{ props.infoValue }}</p>
+	</div>
+</template>
+
+
 <script setup>
 const props = defineProps({
 	infoTitle: String,
@@ -5,12 +13,6 @@ const props = defineProps({
 })
 </script>
 
-<template>
-	<div class="info">
-		<h3 class="info__title">{{ props.infoTitle }}</h3>
-		<p class="info__value">{{ props.infoValue }}</p>
-	</div>
-</template>
 
 <style scoped>
 .info {

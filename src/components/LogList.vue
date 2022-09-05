@@ -1,15 +1,17 @@
-<script setup>
-const props = defineProps({
-	Log: Object
-})
-</script>
-
 <template>
 	<div class="container">
 		<section :class="Log.type" class="date">{{ Log.date }}</section>
 		<section class="text">{{ Log.text }}</section>
 	</div>
 </template>
+
+
+<script setup>
+const props = defineProps({
+	Log: Object
+})
+</script>
+
 
 <style scoped>
 .container {

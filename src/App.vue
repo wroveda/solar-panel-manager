@@ -1,31 +1,3 @@
-<script setup>
-import wretch from "wretch";
-import { ref } from "vue";
-import InfoCard from "./components/InfoCard.vue";
-import LogList from "./components/LogList.vue";
-import WeatherCast from "./components/WeatherCast.vue";
-
-const panel = ref({});
-const orderedLogs = ref([{}])
-
-let curConsumption = ref(0)
-setInterval(() => { curConsumption.value += 1 }, 1000)
-
-wretch()
-	.url("https://ott-fogliata.github.io/vuejs-s2i-repository/solar-panels.json")
-	.get()
-	.json(json => {
-		panel.value = json
-		orderedLogs.value = panel
-			.value
-			.logs
-			.sort((a, b) => {
-				return new Date(b.date) - new Date(a.date)
-			})
-		})
-
-</script>
-
 <template>
 	<header>
 		<div class="logo-container">
@@ -33,7 +5,7 @@ wretch()
 		</div>
 		<div class="weathercast-container">
 			<WeatherCast />
-			<div> {{ curConsumption }} kWh </div>
+			<div>{{ curConsumption }} kWh</div>
 		</div>
 	</header>
 	<div class="info-container">
@@ -49,6 +21,41 @@ wretch()
 		</ul>
 	</div>
 </template>
+
+
+<script setup>
+import wretch from "wretch"
+import { ref } from "vue"
+import InfoCard from "./components/InfoCard.vue"
+import LogList from "./components/LogList.vue"
+import WeatherCast from "./components/WeatherCast.vue"
+
+let curConsumption = ref(0)
+setInterval(() => { curConsumption.value += 1 }, 1000)
+
+const panel = ref({})
+const orderedLogs = ref([{}])
+
+// Fetch info from the API and update panel and logs
+function updatePanelInfo() {
+	wretch()
+		.url("https://ott-fogliata.github.io/vuejs-s2i-repository/solar-panels.json")
+		.get()
+		.json(json => {
+			panel.value = json
+			orderedLogs.value = panel
+				.value
+				.logs
+				.sort((a, b) => {
+					return new Date(b.date) - new Date(a.date)
+				})
+		})
+}
+
+updatePanelInfo()
+setInterval(updatePanelInfo, 5000)
+</script>
+
 
 <style>
 @font-face {
