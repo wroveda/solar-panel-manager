@@ -1,35 +1,35 @@
-# solar-pannel-manager
+# Solar Panel Manager
 
-This template should help get you started developing with Vue 3 in Vite.
+![project preview](preview.webp)
 
-## Recommended IDE Setup
+Modern frontend for a solar panel system
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### About
 
-## Customize configuration
+A simple example of a frontend for a hotel's solar panel system.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Installation
 
-## Project Setup
+Requires ``npm`` to build it.
 
-```sh
-npm install
-```
+1. Clone the repo
+	```
+	git clone https://github.com/wroveda/solar-panel-manager.git
+	```
+2. Install the dependencies
+	```
+	npm install
+	```
+3. Build the site
+	```
+	npm run dev
+	```
+4. Connect to the displayed url with your prefered browser
 
-### Compile and Hot-Reload for Development
+## Example
 
-```sh
-npm run dev
-```
+Example of the project deployed here: [site](https://solar-panel-manager.netlify.app/)
 
-### Compile and Minify for Production
+## License
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Distributed under the MIT license. See ``LICENSE`` for more information.
